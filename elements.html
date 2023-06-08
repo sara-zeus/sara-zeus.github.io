@@ -170,8 +170,8 @@ ON customers.CustomerID = orders.customerID
 INNER JOIN menus ON orders.MenuID = menus.MenuID 
 INNER JOIN menuitems ON menuitems.MenuItemID = menus.MenuItemsID WHERE Cost > 150  ORDER BY Cost;</code></pre>
 					<hr />
-					</p>Little Lemon asked to create a virtual table called OrdersView that focuses on OrderID,
-					Quantity and Cost with orders quantity of more than 2.</p>
+					</p>Little Lemon asked you to create a procedure called GetMaxQuantity() that displays the maximum
+					ordered quantity in the orders table.</p>
 					<h3>Query</h3>
 
 					<pre><code>CREATE PROCEDURE 'GetMaxQuantity'()
@@ -221,6 +221,25 @@ DECLARE bookedTable INT DEFAULT 0;
 END
 
 </code></pre>
+						<h3>CancelBooking() query
+
+						</h3>
+
+						<pre><code>
+CREATE PROCEDURE CancelBooking(IN bookingId INT)
+BEGIN
+
+    DELETE FROM Bookings WHERE BookingID= bookingId; 
+
+END 
+							
+							
+							
+
+</code></pre>
+
+
+
 						</code></pre>
 						<h3>UpdateBooking() query
 
@@ -284,4 +303,4 @@ END
 						</p>It has been a journey of discovery and understanding. Thank you
 						for joining me on this exploration and for engaging with the project. If you have any further
 						questions or thoughts, please feel free to share. With the enhanced visual insights gained, we
-						conclude this project. Thank you once again for your participation
+						conclude this project. Thank you once again for your participation.
