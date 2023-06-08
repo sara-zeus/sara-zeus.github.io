@@ -1,0 +1,196 @@
+<example>
+    <!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+    <html>
+
+    <head>
+        <title>Elements3 - Hyperspace by HTML5 UP</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript>
+            <link rel="stylesheet" href="assets/css/noscript.css" />
+        </noscript>
+    </head>
+
+    <body class="is-preload">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="title">Hyperspace</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="generic.html">Generic</a></li>
+                    <li><a href="elements.html">Little Lemon</a></li>
+                    <li><a href="element2.html">Amazon</a></li>
+                    <li><a href="elements3.html" class="active">Crypto</a></li>
+
+
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+            <section id="main" class="wrapper">
+                <div class="inner">
+                    <h1 class="major">Automating Crypto Analysis: Harnessing API for Data Automation, Data
+                        Cleaning with Pandas, and Matplotlib for Enhanced Insights </h1>
+
+                    <!-- Text -->
+                    <section>
+                        <h2>Wed June 1st, 2023
+
+                            <p> <i class="fas fa-clock"> 20 min read</i></p>
+
+
+                        </h2>
+
+                        <style>
+                            p {
+                                font-weight: bold;
+                            }
+                        </style>
+                        <hr />
+                        <p>
+                            <strong>In my quest to delve into the world of cryptocurrencies, I leveraged the power of
+                                APIs to automate the process of gathering essential data. With the assistance of
+                                CoinMarketCap's API, obtained from their website at https://coinmarketcap.com/, I
+                                seamlessly retrieved real-time cryptocurrency data. Utilizing Python, I integrated this
+                                API into my workflow, allowing me to obtain comprehensive information about various
+                                cryptocurrencies.
+                        </p>
+                        <hr />
+
+                        The following code snippet showcases the automation of API usage: </p>
+                        <iframe src="Automating.html" width="100%" height="600px"></iframe>
+
+
+                        <hr />
+
+                        The following code snippet showcases extraction of valuable insights through Matplotlib: </p>
+                        <iframe src="MatPlotLib.html" width="100%" height="600px"></iframe>
+                        <hr />
+
+
+
+
+
+
+                        This is the resulting table obtained:
+                        </p>
+
+
+                        <!DOCTYPE html>
+                        <html>
+
+                        <head>
+                            <title>CSV to HTML Table</title>
+                            <style>
+                                table {
+                                    border-collapse: collapse;
+                                    width: 50%;
+                                }
+
+                                th,
+                                td {
+                                    border: 1px solid black;
+                                    padding: 5px;
+                                }
+
+                                th {
+                                    background-color: #f2f2f2;
+                                    color: black;
+                                    /* Add this line to change font color to black */
+                                }
+                            </style>
+                        </head>
+
+                        <body>
+                            <table id="csvTable"></table>
+                            <script>
+                                // Read and parse the CSV file
+                                function readCSVFile(file) {
+                                    const reader = new FileReader();
+                                    reader.onload = function (e) {
+                                        const csv = e.target.result;
+                                        const rows = csv.split('\n');
+                                        const table = document.querySelector('#csvTable');
+
+                                        // Create table header
+                                        const headerRow = document.createElement('tr');
+                                        const headers = rows[0].split(',');
+                                        headers.forEach(header => {
+                                            const th = document.createElement('th');
+                                            th.style.color = "black"; // Set the font color of th to black
+                                            th.textContent = header;
+                                            headerRow.appendChild(th);
+                                        });
+                                        table.appendChild(headerRow);
+
+                                        // Populate table with data rows
+                                        const limitedRows = rows.slice(1, 21); // Limit to 20 rows
+                                        limitedRows.forEach(row => {
+                                            const dataRow = document.createElement('tr');
+                                            const cells = row.split(',');
+                                            cells.forEach(cell => {
+                                                const td = document.createElement('td');
+                                                td.textContent = cell;
+                                                dataRow.appendChild(td);
+                                            });
+                                            table.appendChild(dataRow);
+                                        });
+                                    };
+
+                                    reader.readAsText(file);
+                                }
+
+                                // Fetch the CSV file and display it as a table
+                                const filePath = 'API.csv';
+                                fetch(filePath)
+                                    .then(response => response.text())
+                                    .then(data => {
+                                        const file = new Blob([data], { type: 'text/csv' });
+                                        readCSVFile(file);
+                                    });
+                            </script>
+                        </body>
+
+                        </html>
+
+
+
+                        Conclusion:</p>
+
+
+
+                        In conclusion, this project showcased the power and versatility of Python in automating
+                        cryptocurrency analysis. By leveraging the CoinMarketCap API, I was able to retrieve real-time
+                        data on various cryptocurrencies. With the help of the pandas library, I efficiently cleaned
+                        and organized the data, ensuring its accuracy and reliability. Furthermore, the utilization of
+                        Matplotlib allowed me to visualize the data and gain valuable insights into cryptocurrency
+                        trends and market behavior.
+
+                        Through the seamless integration of API automation, data cleaning, and visualization techniques,
+                        I obtained a comprehensive understanding of the current state of the cryptocurrency market.
+                        This project demonstrated the ability to extract meaningful information from raw data and
+                        transform it into actionable insights.
+
+                        The combination of automation and visualization not only streamlined the analysis process but
+                        also enhanced decision-making capabilities in the dynamic and fast-paced world of
+                        cryptocurrencies. This project serves as a testament to the effectiveness of Python and its
+                        powerful libraries in tackling complex data analysis tasks.
+
+                        Overall, this project provided a solid foundation for further exploration and research in the
+                        field of cryptocurrency analysis, opening up possibilities for deeper insights and informed
+                        decision-making in the ever-evolving realm of digital currencies.
+                        </p>
+                        A simple but heartfelt thank you to all the readers of my projects. Your support and engagement
+                        mean a lot to me. If you have any questions or feedback, please feel free to reach out. Thank
+                        you for being a part of my journey!

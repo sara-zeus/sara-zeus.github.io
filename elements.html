@@ -1,0 +1,288 @@
+<example>
+	<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+	<html>
+
+	<head>
+		<title>Elements - Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript>
+			<link rel="stylesheet" href="assets/css/noscript.css" />
+		</noscript>
+	</head>
+
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="index.html" class="title">Hyperspace</a>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="generic.html">Generic</a></li>
+					<li><a href="elements.html" class="active">Little Lemon</a></li>
+					<li><a href="element2.html">Amazon</a></li>
+					<li><a href="elements3.html">Crypto</a></li>
+
+
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<h1 class="major">Capstone Project</h1>
+
+					<!-- Text -->
+					<section>
+						<h2>Wed May 1, 2023
+
+							<p> <i class="fas fa-clock"> 30 min read</i></p>
+
+
+						</h2>
+
+						<style>
+							p {
+								font-weight: bold;
+							}
+						</style>
+
+						<p>
+							<strong>In this post, I am pleased to present the culmination of my efforts during the Meta
+								Certificate program, an overview of my capstone project.
+						</p>
+						<hr />
+						<p>Here is the roadmap we will follow:</p>
+
+						<style>
+							.indented-paragraph {
+								margin-left: 20px;
+							}
+						</style>
+						<ul>
+							<li>Version Conttrol </li>
+							<li>Database setup in MySQL Workbench</li>
+							<li>Set up the MySQL instance server in MySQL Workbench</li>
+							<li>Creating an Entity Relationship Model in MySQL Workbench</li>
+							<li>Create an ER diagram data model and implement it in MySQL</li>
+							<li>Use SQL to create virtual tables, stored procedures and prepared statements for Little
+								Lemon restaurant
+							</li>
+
+							<li>stablisheding a database API that allows Python code to interact with a database
+							<li> Add query functions
+							<li>Using Tableau to help Little Lemon generate insights using the tools data analysis
+								features
+						</ul>
+
+
+						<p class="indented-paragraph"></p>
+
+						</p>
+						<hr />
+
+
+						<p>
+							Version control is an indispensable component of software development and collaborative
+							projects. It encompasses the management of modifications made to a project's source code and
+							related files throughout its lifespan.
+
+							In this project, I fulfilled the following tasks:
+
+							<style>
+								ol {
+									margin-left: 20px;
+								}
+							</style>
+
+						<ol>
+							<li>Establishment of a repository or local directory, serving as a centralized location for
+								code storage.</li>
+							<li>Thorough documentation and tracking of all system modifications implemented.</li>
+							<li>Provision of collaborative access, granting others the ability to review, contribute to,
+								and enhance the codebase.</li>
+						</ol>
+
+
+
+						<p>
+							<hr />
+
+
+
+						<p>Little Lemon, a growing business, recognized the need for a reliable relational database
+							system to efficiently store and manage large amounts of data. As part of this project, I
+							successfully implemented the use of MySQL Workbench to create a robust database system for
+							Little Lemon.
+						<p>
+							<hr />
+
+						</p> As part of the database system development for Little Lemon, I created an Entity
+						Relationship (ER) diagram to represent the structure and relationships within their database.
+						The ER diagram serves as a visual representation of entities, attributes, and the connections
+						between them.
+
+						During the database design phase, I explored various data models, including the Entity
+						Relationship Model, Hierarchical Data Model, Object-Oriented Data Model, and Dimensional Data
+						Model. Each model offers unique advantages and considerations, tailored to specific objectives.
+						</p>
+						</p>The following illustration provides an ER diagram of the physical data model for Little
+						Lemon, which has been deployed in MySQL. </p>
+
+						<img src="LittleLemonDM.png" alt="Description of the image" />
+						<hr />
+						</p>After creating the physical model, I proceeded to perform the following steps: synchronizing
+						it with the MySQL server using the forward-engineer method. To accomplish this, I launched the
+						Forward Engineer. The wizard generated the
+						internal SQL schema, which was executed in MySQL Workbench. </p>
+
+						<hr />
+						</p>Little Lemon asked to create a virtual table called OrdersView that focuses on OrderID,
+						Quantity and Cost with orders quantity of more than 2.</p>
+						<h3>Query</h3>
+
+						<pre><code>CREATE VIEW OrdersView AS
+SELECT OrderID, Quantity, Cost
+FROM orders
+WHERE Quantity > 2;
+
+</code></pre>
+					</section>
+
+
+					<hr />
+					</p>LLittle Lemon asked to create a procedure called GetMaxQuantity() that displays the maximum
+					ordered quantity in the orders table.</p>
+					<h3>Query</h3>
+
+					<pre><code>SELECT customers.CustomerID, customers.FullName, orders.OrderID, orders.Cost, menus.MenuName, menuitems.CourseName
+FROM customers INNER JOIN orders 
+ON customers.CustomerID = orders.customerID
+INNER JOIN menus ON orders.MenuID = menus.MenuID 
+INNER JOIN menuitems ON menuitems.MenuItemID = menus.MenuItemsID WHERE Cost > 150  ORDER BY Cost;</code></pre>
+					<hr />
+					</p>Little Lemon asked to create a virtual table called OrdersView that focuses on OrderID,
+					Quantity and Cost with orders quantity of more than 2.</p>
+					<h3>Query</h3>
+
+					<pre><code>CREATE PROCEDURE 'GetMaxQuantity'()
+SELECT max(quantity) AS "Max Quantity in Order" FROM orders
+
+</code></pre>
+					<hr />
+					</p>Little Lemon asked to create few procedures to complete the following tasks:
+
+					<li>Make a booking using a procedure called MakeBooking(),
+
+
+					<li>Check a booking using a procedure called CheckBooking(),
+
+
+					<li>Cancel booking using a procedure called CancelBooking(),
+
+
+					<li>and update booking using a procedure called UpdateBooking().
+
+						</p>
+						<h3>MakeBooking() query</h3>
+
+						<pre><code>CREATE PROCEDURE 'MakeBooking'(booking_id INT, customer_id INT, table_no int, booking_date date)
+BEGIN
+INSERT INTO bookings (BookingID, BookingDate, TableNumber, CustomerID) VALUES 
+(booking_id, booking_date, table_no, customer_id);
+SELECT "New booking added" AS "Confirmation";
+END
+
+</code></pre>
+						<h3>CheckBooking() query
+
+						</h3>
+
+						<pre><code>CREATE PROCEDURE 'CheckBooking'(booking_date DATE, table_number INT)
+BEGIN
+DECLARE bookedTable INT DEFAULT 0;
+ SELECT COUNT(bookedTable)
+	INTO bookedTable
+	FROM Bookings WHERE BookingDate = booking_date and TableNumber = table_number;
+	IF bookedTable > 0 THEN
+	  SELECT CONCAT( "Table", table_number, "is already booked") AS "Booking status";
+	  ELSE 
+	  SELECT CONCAT( "Table", table_number, "is not booked") AS "Booking status";
+	END IF;
+END
+
+</code></pre>
+						</code></pre>
+						<h3>UpdateBooking() query
+
+
+
+						</h3>
+
+						<pre><code>CREATE DEFINER='admin1'@'%' PROCEDURE 'UpdateBooking'(booking_id INT, booking_date DATE)
+BEGIN
+UPDATE bookings SET BookingDate = booking_date WHERE BookingID = booking_id; 
+SELECT CONCAT("Booking", booking_id, "updated") AS "Confirmation";
+END
+
+</code></pre>
+						<hr />
+
+						</p>The next steps were to visualize the sales data of a restaurant and implement a database
+						client in
+						Python. This step aimed to achieve the following learning objectives:
+
+					<li>Data visualization: Utilizing appropriate tools and techniques to represent the restaurant's
+						sales data in a visual format.
+
+					<li>Complete implementation: Developing a database client using Python to interact with the
+						restaurant's database, allowing for data retrieval, manipulation, and analysis </p>
+
+
+
+						<iframe src="Jupyter.html" width="100%" height="600px"></iframe>
+
+
+						<hr />
+						</p>Now, it's time to dive into Data Analytics with Tableau and present their insights using
+						worksheets and interactive dashboards: </p>
+
+						<style>
+							img {
+								width: 70%;
+								height: auto;
+							}
+						</style>
+
+						<img src="1.png" alt="Description of the image">
+						<hr />
+						<img src="3.png" alt="Description of the image">
+
+
+						<hr />
+						<img src="4.png" alt="Description of the image">
+						<hr />
+						<img src="6.png" alt="Description of the image">
+						<hr />
+						<img src="2.png" alt="Description of the image">
+						<hr />
+						Conclusion</p>
+
+						After exploring data visualization with Tableau, we have gained valuable insights through visual
+						representations. The use of Tableau's powerful tools has allowed me to uncover meaningful
+						patterns and trends in the data.
+
+						</p>It has been a journey of discovery and understanding. Thank you
+						for joining me on this exploration and for engaging with the project. If you have any further
+						questions or thoughts, please feel free to share. With the enhanced visual insights gained, we
+						conclude this project. Thank you once again for your participation
